@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<!-- COMIENZO DEL HEAD -->
+
+<%- include ("../partials/head") -%>
+
+<body>
+    <div class ="logowhatsapp">
+        <img src="/img/whatsapp-logo.svg"  alt="Whatsapp" class ="logosredes"/>
+    </div>
+
+<!-- COMIENZO HEADER -->
+<%- include ("../partials/header") -%>
+
+        <main>
+            <div>
+            <div class = "fotosyprecio_detalle">
+            <div class = "fotos_detalle_producto">
+                <div class = "foto_detalle_producto_principal">
+                    <img class="principal" src="/img/products/<%=product.image%>">
+                </div>
+                <div class = "foto_detalle_producto_secundarias">
+                    <img class="secundaria" src="/img/products/<%=image.image2%>">
+                    <img class="secundaria" src="/img/products/<%=image.image3%>">
+                    <img class="secundaria" src="/img/products/<%=image.image4%>">
+                </div>
+            </div>  
+            <section class ="cajaprecio_detalle">
+                <div class ="titulo_detalle_producto">
+                    <%=product.marca%> <%=product.serie%> <%=product.modelo%> | <%=product.memoria%> | 
+                    <%=product.almacenamiento%> | <%=product.sistemaOperativo%> | <%=product.pantalla%>" 
+                </div>
+                <div class = "codigo_detalle_producto">
+                    Cod.  <%=product.codigomodelo%>
+                </div>
+                <div class = "<%= cssStock %>">
+                    <%= hayStock %>
+                </div>
+                <div class = "precio">
+                    Precio: ARS <%=toThousand(product.precio)%>
+                </div>
+                <div class = "botones_detalle">
+                    <button class = "boton">Comprar Ahora</button>
+                    <button class = "boton">Agregar al carrito</button>
+                    <a href = "/products/<%=product.id%>/editImage"><button class = "boton">Editar Imagenes</button></a>
+                    <a href = "/products/<%=product.id%>/edit"><button class = "boton">Editar Producto</button></a>
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class = "boton">Eliminar</button>
+                    </form>
+                </div>
+            </section>
+            </div>
+            <div class = "detalleymarcas">
+            <section class ="detallecompleto">
+                <div class="encabezado_contenido_detalle_prod">
+                    <div class = "solapas_contenido_detalle_prod">Descripción</div>
+                    <div class = "solapas_contenido_detalle_prod">Opcionales</div>
+                    <div class = "solapas_contenido_detalle_prod">Aplicaciones</div>
+                </div>
+                <div class ="contenido_detalle">
+                    <div class = "titulos_contenido_detalle_prod">PROCESADOR
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.procesador%>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">GRÁFICOS
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.graficos%>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">MEMORIA
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.memoria%>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">ALMACENAMIENTO
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.almacenamiento%>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">PANTALLA
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.pantalla%>
+                    </div>
+                    
+                    <div class = "titulos_contenido_detalle_prod">CONECTIVIDAD
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        WiFi: Si, AC / Bluetooth: Si, 4.2 <br>
+                        HDMI: Si / Red: No <br>
+                        USB 3.1: 2 <br>
+                        Grabadora DVD: No / Lector Memorias: Si <br>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">SISTEMA OPERATIVO
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        <%=product.sistemaOperativo%>
+                    </div>
+
+                    <div class = "titulos_contenido_detalle_prod">OTRAS ESPECIFICACIONES
+                    </div>
+                    <div class = "contenido_detalle_prod">
+                        Color: <%=product.color%> / WebCam: Si, 0.3MP <br>
+                        Teclado: Español / Pad Numérico: Si<br>
+                        Modelo: <%=product.codigomodelo%><br>
+                        Aplicacion: <%=product.category%><br>
+                    </div>
+                </div>                      
+            </section> 
+            <section class = "marcas">
+                    <img class="logomarcas" src="/img/Alienware-Logo-1.png">
+                    <img class="logomarcas" src="/img/radeonlogo.jfif">
+                    <img class="logomarcas" src="/img/windows11logo.png">
+            </section>
+            </div>
+            </div>
+        </main>
+
+    <!-- COMIENZO FOOTER -->
+
+    <%- include ("../partials/footer") -%>
+
+    </body>
+</html>
